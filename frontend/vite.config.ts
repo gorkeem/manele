@@ -10,4 +10,7 @@ export default defineConfig({plugins: [react(), tailwindcss()],
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    port: 3000,
+  }
 })
