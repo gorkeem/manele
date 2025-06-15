@@ -10,6 +10,7 @@ import statRoutes from "./routes/stat.route.js";
 import { connectDB } from "./lib/db.js";
 import fileUpload from "express-fileupload";
 import path from "path";
+import cors from "cors";
 
 dotenv.config();
 const __dirname = path.resolve();
@@ -27,6 +28,13 @@ app.use(
 );
 
 const PORT = process.env.PORT || 3000;
+
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        credentials: true,
+    })
+);
 
 app.use("/api/users", userRoutes);
 app.use("/api/auth", authRoutes);
